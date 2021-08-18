@@ -1,6 +1,7 @@
 """Simple Caluclator Program"""
 
-from tkinter import *  # Importing Everthing from Tkinter
+from tkinter import *
+import tkinter  # Importing Everthing from Tkinter
 
 __author__ = "Kartikey"
 __version__ = "1.0.0"
@@ -61,12 +62,12 @@ class calculatorButton():
     -> the button will change colour if mouse pointer
     -> is above the button."""
 
-    def __init__(self, master=NONE, text='0', command=None, bg='#10111b', fg='white', relief=FLAT, font='consolas 23 bold', bd=0, side=LEFT, expand=YES, fill=BOTH, anchor=CENTER):
+    def __init__(self, master=NONE, text='0', command=None, bg='#10111b', fg='white', relief=FLAT, font='consolas 23 bold', bd=0, side=LEFT, expand=YES, fill=BOTH, anchor=CENTER, padx=0, pady=0):
         if command == None:
             command = self.enterNumber
         self.button = Button(master, text=text, font=font,
                              relief=relief, bg=bg, fg=fg, command=command, bd=bd)
-        self.button.pack(side=side, anchor=anchor, expand=expand, fill=fill)
+        self.button.pack(side=side, anchor=anchor, expand=expand, fill=fill, padx=padx, pady=pady)
         self.button.bind('<Enter>', self.focusButton)
         self.button.bind('<Leave>', self.focusButton)
 
@@ -97,7 +98,7 @@ if __name__ == '__main__':
 
     # Defining Window
     root = Tk()
-    root.geometry('400x400+250+250')
+    root.geometry('420x420+250+250')
     root.resizable(False, False)  # Non Resizable Window
     root.title('Sky Dive Calculator')
     root.config(bg='#10111b')
@@ -107,9 +108,9 @@ if __name__ == '__main__':
         map(str, ['+', '-', '*', '/', '^', 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.']))
 
     # Defining Frames
-    calculationFrame, buttonsFrame = Frame(bg='yellow'), Frame(bg='red')
-    calculationFrame.pack(fill=BOTH)
-    buttonsFrame.pack(fill=BOTH, expand=YES)
+    calculationFrame, buttonsFrame = Frame(bg='#10111b'), Frame(bg='red')
+    calculationFrame.pack(fill=BOTH, padx=10, pady=5)
+    buttonsFrame.pack(fill=BOTH, expand=YES, padx=5, pady=5)
 
     # Items in Calculation Frame
     # Main Entry Widget
@@ -122,7 +123,7 @@ if __name__ == '__main__':
     calculationBar.pack(fill=BOTH, expand=YES)
     calculationResultBar.pack(fill=BOTH, expand=YES, side=LEFT)
     calculatorButton(calculationFrame, text=' \u232b ',
-                     expand=NO, font='consolas 19')
+                     expand=NO, font='consolas 19', padx=4)
 
     # Items in Buttons Frame
     # Definign Layers for Buttons
