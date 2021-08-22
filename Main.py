@@ -28,7 +28,7 @@ def remindResult():
     equation = calculationBar.get().replace(
         '^', '**').replace('\u00d7', '*').replace('\u00f7', '/')
     try:
-        equation = eval(equation)
+        equation = '= '+str(eval(equation))
     except:
         equation = 'Error!'
     # Updating the Result
