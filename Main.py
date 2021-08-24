@@ -101,6 +101,7 @@ if __name__ == '__main__':
     root.geometry('420x420+250+250')
     root.resizable(False, False)  # Non Resizable Window
     root.title('Sky Dive Calculator')
+    root.wm_iconbitmap('icon.ico')
     root.config(bg='#10111b')
 
     # Keys that can be pressed
